@@ -27,6 +27,11 @@ var getUserRepos = function(user) {
       });
     });
   };
+
+  var displayRepos = function(repos, searchTerm) {
+    console.log(repos);
+    console.log(searchTerm);
+  };
   
   userFormEl.addEventListener("submit", formSubmitHandler);
   
