@@ -5,9 +5,11 @@ var repoNameEl = document.querySelector("#repo-name");
 var getRepoName = function() {
     var queryString = document.location.search;
     var repoName = queryString.split("=")[1];
-    console.log(repoName);
-};
-
+    if(repoName) {
+        repoNameEl.textContent = repoName;
+        getRepoIssues(repoName);
+      }
+    }
 var getRepoIssues = function(repo) {
     console.log(repo);
     
