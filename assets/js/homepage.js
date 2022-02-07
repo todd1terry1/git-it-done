@@ -92,13 +92,15 @@ var getUserRepos = function(user) {
     var apiUrl = "https://api.github.com/search/repositories?q=" + language + "+is:featured&sort=help-wanted-issues";
   
     fetch(apiUrl).then(function(response) {
-        if (response.ok) {
-          console.log(response);
-        } else {
-          alert('Error: GitHub User Not Found');
-        }
-      });
-    };
+      if (response.ok) {
+        response.json().then(function(data) {
+          displayRepos(data.items, language);
+        });
+      } else {
+        alert('Error: GitHub User Not Found');
+      }
+    });
+  };
 
   userFormEl.addEventListener("submit", formSubmitHandler);
   
